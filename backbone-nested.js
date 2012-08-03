@@ -7,7 +7,9 @@
  * MIT Licensed (LICENSE)
  */
 /*global $, _, Backbone */
-(function(){
+(function() {
+  
+function factory(Backbone, _, $){
   'use strict';
 
   var _delayedTriggers = [];
@@ -272,5 +274,12 @@
     }
 
   });
+});
+
+if(typeof define === 'function' && define.amd)
+  define('backbone/nested', ['backbone', 'underscore', 'jquery'], factory);
+else
+  factory(Backbone, _, $);
 
 })();
+
